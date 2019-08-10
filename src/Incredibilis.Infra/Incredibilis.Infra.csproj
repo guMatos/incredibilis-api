@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Incredibilis.Domain\Incredibilis.Domain.csproj" />
-    <ProjectReference Include="..\Incredibilis.Infra\Incredibilis.Infra.csproj" />
   </ItemGroup>
 
 </Project>

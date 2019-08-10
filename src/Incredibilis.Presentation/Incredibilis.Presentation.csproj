@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Incredibilis.Domain\Incredibilis.Domain.csproj" />
+    <ProjectReference Include="..\Incredibilis.Business\Incredibilis.Business.csproj" />
+  </ItemGroup>
+
 </Project>

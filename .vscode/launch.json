@@ -11,7 +11,7 @@
 			"preLaunchTask": "build",
 			"program": "${workspaceFolder}/src/Incredibilis.Presentation/bin/Debug/netcoreapp2.2/Incredibilis.Presentation.dll",
 			"args": [],
-			"cwd": "${workspaceFolder}",
+			"cwd": "${workspaceFolder}/src/Incredibilis.Presentation",
 			"stopAtEntry": false,
 			"launchBrowser": {
 				"enabled": false
