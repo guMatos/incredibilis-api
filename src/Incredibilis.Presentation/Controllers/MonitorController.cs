@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Incredibilis.Presentation.Controllers
@@ -10,5 +11,10 @@ namespace Incredibilis.Presentation.Controllers
 		[Route("[action]")]
 		public IActionResult Health()
 			=> Ok("INCONTINENS\nINCREDIBILIS\nINFIRMUS\nETIAM");
+
+		[HttpGet]
+		[Route("[action]")]
+		public IActionResult Exception()
+			=> throw new Exception("teste");
 	}
 }

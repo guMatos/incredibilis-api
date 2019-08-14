@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Incredibilis.Infra.Connection;
 using Incredibilis.Infra.Repository;
 using Incredibilis.Infra.Wrapper;
+using Incredibilis.Presentation.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,8 @@ namespace Incredibilis.Presentation
             services.AddScoped<IMongoConnection, MongoConnection>();
             services.AddScoped<IConfigurationWrapper, ConfigurationWrapper>();
             services.AddScoped<IGenericRepository, GenericRepository>();
+
+            services.AddSingleton<IExceptionHelper, ExceptionHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +50,9 @@ namespace Incredibilis.Presentation
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            var exceptionHandler = app.ApplicationServices.GetService<IExceptionHelper>();
+            app.Use(exceptionHandler.Handle);
 
             app.UseHttpsRedirection();
             app.UseMvc();
