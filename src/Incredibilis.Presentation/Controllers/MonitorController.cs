@@ -9,6 +9,6 @@ namespace Incredibilis.Presentation.Controllers
 		[HttpGet]
 		[Route("[action]")]
 		public IActionResult Health()
-			=> Ok("UP");
+			=> Ok("INCONTINENS\nINCREDIBILIS\nINFIRMUS\nETIAM");
 	}
 }
