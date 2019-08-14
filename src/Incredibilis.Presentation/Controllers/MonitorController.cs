@@ -11,10 +11,5 @@ namespace Incredibilis.Presentation.Controllers
 		[Route("[action]")]
 		public IActionResult Health()
 			=> Ok("INCONTINENS\nINCREDIBILIS\nINFIRMUS\nETIAM");
-
-		[HttpGet]
-		[Route("[action]")]
-		public IActionResult Exception()
-			=> throw new Exception("teste");
 	}
 }
