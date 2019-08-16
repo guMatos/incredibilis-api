@@ -11,5 +11,6 @@ namespace Incredibilis.Infra.Wrapper
 
 		public string MongoConnectionString => configuration[nameof(MongoConnectionString)];
 		public string MongoDatabase => configuration[nameof(MongoDatabase)];
+		public string ExchangeRatesApi => configuration[nameof(ExchangeRatesApi)];
 	}
 }

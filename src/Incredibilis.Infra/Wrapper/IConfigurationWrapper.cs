@@ -4,5 +4,6 @@ namespace Incredibilis.Infra.Wrapper
 	{
 		string MongoConnectionString { get; }
 		string MongoDatabase { get; }
+		string ExchangeRatesApi { get; }
 	}
 }
