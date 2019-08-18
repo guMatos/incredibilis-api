@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Incredibilis.Business.Rates;
 using Incredibilis.Infra.Connection;
 using Incredibilis.Infra.Repository;
 using Incredibilis.Infra.Wrapper;
@@ -34,6 +35,7 @@ namespace Incredibilis.Presentation
             services.AddScoped<IMongoConnection, MongoConnection>();
             services.AddScoped<IConfigurationWrapper, ConfigurationWrapper>();
             services.AddScoped<IGenericRepository, GenericRepository>();
+            services.AddScoped<IRateExchangeApiService, RateExchangeApiService>();
 
             services.AddSingleton<IExceptionHelper, ExceptionHelper>();
         }

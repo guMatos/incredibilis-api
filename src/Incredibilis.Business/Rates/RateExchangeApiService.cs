@@ -4,9 +4,9 @@ using Incredibilis.Domain.Rates;
 using Incredibilis.Infra.Wrapper;
 using RestEase;
 
-namespace Incredibilis.Infra.Rates
+namespace Incredibilis.Business.Rates
 {
-    public class RateExchangeApiService
+    public class RateExchangeApiService : IRateExchangeApiService
     {
         IConfigurationWrapper configuration;
 
@@ -15,11 +15,11 @@ namespace Incredibilis.Infra.Rates
             this.configuration = configuration;
         }
 
-        public async Task<RateExchange> GetRateExchangeAsync([Path] RateExchangeRequest request)
+        public async Task<RateExchange> GetRateExchangeAsync(RateExchangeRequest request)
         {
             var api = RestClient.For<IRateExchageApi>(configuration.ExchangeRatesApi);
 
-            var rateExchange = await api.GetRateExchangeAsync(request) ?? throw new Exception("Requisição para Api de conversão falhou");
+            var rateExchange = await api.GetRateExchangeAsync(request.Base, request.Symbols);
             return rateExchange;
         }
     }
