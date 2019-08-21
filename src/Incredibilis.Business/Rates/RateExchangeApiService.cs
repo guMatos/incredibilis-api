@@ -23,13 +23,13 @@ namespace Incredibilis.Business.Rates
 
             foreach (var rate in exchangeRates.Rates)
             {
-                var value = decimal.Round(rate.Value * request.BaseValue, 2);
+                var formattedValue = decimal.Round(rate.Value * request.BaseValue, 2);
 
                 response.Add(new RateExchangeResponse {
                     BaseCurrency = exchangeRates.Base,
                     BaseValue = request.BaseValue,
                     Currency = rate.Key,
-                    Value = value
+                    Value = formattedValue
                 });
             }
 
