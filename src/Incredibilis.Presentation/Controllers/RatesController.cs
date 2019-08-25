@@ -19,7 +19,7 @@ namespace Incredibilis.Presentation.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IEnumerable<RateExchangeResponse>> Calculate([FromBody]RateExchangeRequest request)
+        public async Task<RateExchangeResponse> Calculate([FromBody]RateExchangeRequest request)
             => await apiService.CalculatesRateExchange(request);
     }
 }

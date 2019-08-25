@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Incredibilis.Domain.Rates
 {
     public class RateExchangeResponse
@@ -6,8 +8,6 @@ namespace Incredibilis.Domain.Rates
 
         public decimal BaseValue { get; set; }
 
-        public string Currency { get; set; }
-
-        public decimal Value { get; set; }
+        public IEnumerable<Rate> Rates { get; set; }
     }
 }

@@ -16,23 +16,25 @@ namespace Incredibilis.Business.Rates
             this.configuration = configuration;
         }
 
-        public async Task<IEnumerable<RateExchangeResponse>> CalculatesRateExchange(RateExchangeRequest request)
+        public async Task<RateExchangeResponse> CalculatesRateExchange(RateExchangeRequest request)
         {
             var exchangeRates = await GetRateExchangeAsync(request);
-            var response = new List<RateExchangeResponse>();
-
+            var rates = new List<Rate>();
+            
             foreach (var rate in exchangeRates.Rates)
             {
-                var formattedValue = decimal.Round(rate.Value * request.BaseValue, 2);
-
-                response.Add(new RateExchangeResponse {
-                    BaseCurrency = exchangeRates.Base,
-                    BaseValue = request.BaseValue,
+                rates.Add(new Rate {
                     Currency = rate.Key,
-                    Value = formattedValue
+                    Value = decimal.Round(rate.Value * request.BaseValue, 2)
                 });
             }
 
+            var response = new RateExchangeResponse {
+                BaseCurrency = request.BaseSymbol,
+                BaseValue = request.BaseValue,
+                Rates = rates
+            };
+            
             return response;
         }
 

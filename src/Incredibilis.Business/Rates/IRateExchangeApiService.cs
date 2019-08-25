@@ -7,6 +7,6 @@ namespace Incredibilis.Business.Rates
 {
 	public interface IRateExchangeApiService
 	{
-		Task<IEnumerable<RateExchangeResponse>> CalculatesRateExchange(RateExchangeRequest request);
+		Task<RateExchangeResponse> CalculatesRateExchange(RateExchangeRequest request);
 	}
 }
