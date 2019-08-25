@@ -13,9 +13,7 @@ namespace Incredibilis.Presentation.Controllers
         private readonly IRateExchangeApiService apiService;
 
         public RatesController(IRateExchangeApiService apiService)
-        {
-            this.apiService = apiService;
-        }
+            => this.apiService = apiService;
 
         [HttpPost]
         [Route("[action]")]
